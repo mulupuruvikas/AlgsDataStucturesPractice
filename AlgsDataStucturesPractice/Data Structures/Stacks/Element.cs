@@ -8,7 +8,8 @@ namespace AlgsDataStucturesPractice.Data_Structures.Stacks
 {
     internal class Element
     {
-        int value;
+        public int value;
+        public Element top;
 
         public Element()
         {

@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Structures\BSTree\MyBSTree.cs" />
+    <Compile Include="Data Structures\BSTree\TNode.cs" />
     <Compile Include="Data Structures\Linked Lists\MyLL.cs" />
     <Compile Include="Data Structures\Linked Lists\NodeLL.cs" />
     <Compile Include="Data Structures\Stacks\Element.cs" />
-    <Compile Include="Data Structures\Stacks\Stack.cs" />
+    <Compile Include="Data Structures\Stacks\MyStack.cs" />
     <Compile Include="Sorting Algorithms\Sorting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

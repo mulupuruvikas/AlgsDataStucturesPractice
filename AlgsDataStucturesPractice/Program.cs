@@ -1,4 +1,6 @@
-﻿using AlgsDataStucturesPractice.Data_Structures.Linked_Lists;
+﻿using AlgsDataStucturesPractice.Data_Structures.BinaryTree;
+using AlgsDataStucturesPractice.Data_Structures.Linked_Lists;
+using AlgsDataStucturesPractice.Data_Structures.Stacks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,67 @@ namespace AlgsDataStucturesPractice
     {
         static void Main(string[] args)
         {
+            //Binary Tree Testing
+            MyBSTree testTree = new MyBSTree();
+            testTree.add(16);
+            testTree.add(8);
+            testTree.add(24);
+            testTree.add(4);
+            testTree.add(12);
+            testTree.add(20);
+            testTree.add(28);
+            testTree.add(2);
+            testTree.add(6);
+            testTree.add(10);
+            testTree.add(14);
+            testTree.add(18);
+            testTree.add(22);
+            testTree.add(26);
+            testTree.add(30);
+            testTree.add(1);
+            testTree.add(3);
+            testTree.add(5);
+            testTree.add(7);
+            testTree.add(9);
+            testTree.add(11);
+            testTree.add(13);
+            testTree.add(15);
+            testTree.add(17);
+            testTree.add(19);
+            testTree.add(21);
+            testTree.add(23);
+            testTree.add(25);
+            testTree.add(27);
+            testTree.add(29);
+            testTree.add(31);
+            testTree.printBFS();
+            testTree.remove(2);
+            Console.Out.WriteLine();
+            testTree.printBFS();
+
+            //Stack Testing
+            /*
+            MyStack testStack = new MyStack(5);
+            Console.Out.WriteLine(testStack.isEmpty()); //Output: true
+            Console.Out.WriteLine(testStack.isFull()); //Output: false
+            testStack.print(); //Output: []
+            testStack.push(1);
+            testStack.print(); //Output: [1]
+            testStack.push(2);
+            testStack.push(15);
+            testStack.pop();
+            testStack.push(0);
+            testStack.push(40);
+            testStack.push(12);
+            testStack.print();
+            Console.Out.WriteLine(testStack.isFull()); //Output: true
+            Console.Out.WriteLine(testStack.isEmpty()); //Output: false
+            */
+
+
+
             //LinkedList Testing
+            /*
             MyLL testLL = new MyLL();
             Console.Out.WriteLine("Hello");
             testLL.print(); //Output: []
@@ -34,7 +96,7 @@ namespace AlgsDataStucturesPractice
             testLL.print(); //Output: [1, 3, 5]
             testLL.sort();
             testLL.print(); //Output: [1, 3, 4, 5]
-
+            */
 
             //Sorting test cases
             /*
