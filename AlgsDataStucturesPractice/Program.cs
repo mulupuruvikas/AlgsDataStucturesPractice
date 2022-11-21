@@ -47,11 +47,6 @@ namespace AlgsDataStucturesPractice
             testTree.add(27);
             testTree.add(29);
             testTree.add(31);
-            testTree.printBFS();
-            testTree.remove(2);
-            Console.Out.WriteLine();
-            testTree.printBFS();
-
             //Stack Testing
             /*
             MyStack testStack = new MyStack(5);

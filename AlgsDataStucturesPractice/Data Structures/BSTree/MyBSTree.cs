@@ -165,33 +165,70 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
             /*Steps to check to make sure that the tree is sorted:
              *  traverse through the tree and make sure that at every node, the heights are balanced
              */
-            bool balanced = true;
-            while (balanced == true)
-            {
+            traverse_to_balance(this.root);
+        }
 
+        public void traverse_to_balance(TNode r)
+        {
+            if (r.l_child == null && r.r_child == null)
+            {
+                return;
+            }
+            if (r.l_child == null || r.r_child == null)
+            {
+                balance(r);
+                if (r.l_child == null)
+                {                  
+                    traverse_to_balance(r.r_child);
+                }
+                if (r.r_child == null)
+                {
+                    traverse_to_balance(r.l_child);
+                    return;
+                }
+            }
+            balance(r);
+            traverse_to_balance(r.l_child);
+            traverse_to_balance(r.r_child);
+            return;
+
+        }
+
+        public void balance(TNode temp_r)
+        {
+            bool balanced = false;
+            while (balanced == false)
+            {
+                if ( Math.Abs(findheight(temp_r.l_child) - findheight(temp_r.r_child)) > 2 ) { }
+                {
+                    if (findheight(temp_r.l_child) > findheight(temp_r.r_child))
+                    {
+                        
+                    }
+                }
             }
         }
 
-        public void traverse(TNode node)
+        public void rotate_left(TNode subroot)
         {
+            TNode tree1 = subroot.l_child;
+            TNode b = subroot.r_child;
+            TNode tree2 = b.l_child;
+            TNode tree3 = b.r_child;
 
+            subroot.l_child = 
         }
 
-        public bool check_balanced(TNode temp_r)
+        public void rotate_right(TNode subroot)
         {
-            if (temp_r.l_child == null || temp_r.r_child == null)
-            {
-                return true;
-            }
-            if (Math.Abs(height(temp_r.l_child.value) - temp_r.r_child.value) < 2)
-            {
-                return true;
-            }
-            return false;
+
         }
 
         public int findheight(TNode r)
         {
+            //Purpose: finds height of a node (r) in the tree (internal method)
+            //Returns: an integer which represents the height of the node
+            //Parameter: the node that we need to find the height for
             if (r == null)
             {
                 return 0;
@@ -204,6 +241,9 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
 
         public int height(int val)
         {
+            //Purpose: finds height of a node with value (val) in the tree (external method)
+            //Returns: an integer which represents the height of the node
+            //Parameter: the value of the node that we need to find the height for
             TNode curr = this.root;
             while (curr != null)
             {
