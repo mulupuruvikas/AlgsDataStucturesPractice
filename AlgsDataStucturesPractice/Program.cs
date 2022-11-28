@@ -14,8 +14,34 @@ namespace AlgsDataStucturesPractice
     {
         static void Main(string[] args)
         {
+            //right rotation testing
+
+
+            
+            //left rotation testing
+
+            AVLTree testTree = new AVLTree();
+            testTree.add(50);
+            testTree.add(31);
+            testTree.add(69);
+            testTree.add(57);
+            testTree.add(90);
+            testTree.add(99);
+
+            testTree.printBFS();
+            //50, 31, 69, 57, 90, None, 99
+
+            testTree.rotate_left(testTree.root);
+            Console.Out.WriteLine();
+
+            testTree.printBFS();
+            //69, 50, 90, 31, 57, None, 99
+
+
+
             //Binary Tree Testing
-            MyBSTree testTree = new MyBSTree();
+            /*
+            AVLTree testTree = new AVLTree();
             testTree.add(16);
             testTree.add(8);
             testTree.add(24);
@@ -47,6 +73,8 @@ namespace AlgsDataStucturesPractice
             testTree.add(27);
             testTree.add(29);
             testTree.add(31);
+
+            */
             //Stack Testing
             /*
             MyStack testStack = new MyStack(5);

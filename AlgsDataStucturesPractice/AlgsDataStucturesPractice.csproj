@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data Structures\BSTree\MyBSTree.cs" />
-    <Compile Include="Data Structures\BSTree\TNode.cs" />
+    <Compile Include="Data Structures\AVL Tree\AVLTree.cs" />
+    <Compile Include="Data Structures\AVL Tree\TNode.cs" />
     <Compile Include="Data Structures\Linked Lists\MyLL.cs" />
     <Compile Include="Data Structures\Linked Lists\NodeLL.cs" />
     <Compile Include="Data Structures\Stacks\Element.cs" />
@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

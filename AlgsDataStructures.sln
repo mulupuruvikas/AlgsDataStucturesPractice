@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgsDataStucturesPractice", "AlgsDataStucturesPractice\AlgsDataStucturesPractice.csproj", "{C98E39F6-46D2-441D-9D94-ABE3C2102973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgsDataStructuresTestEnvironment", "AlgsDataStructuresTestEnvironment\AlgsDataStructuresTestEnvironment.csproj", "{F0F83B4D-42A7-4294-9783-5E0884A4C84E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C98E39F6-46D2-441D-9D94-ABE3C2102973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98E39F6-46D2-441D-9D94-ABE3C2102973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98E39F6-46D2-441D-9D94-ABE3C2102973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F83B4D-42A7-4294-9783-5E0884A4C84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F83B4D-42A7-4294-9783-5E0884A4C84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F83B4D-42A7-4294-9783-5E0884A4C84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F83B4D-42A7-4294-9783-5E0884A4C84E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

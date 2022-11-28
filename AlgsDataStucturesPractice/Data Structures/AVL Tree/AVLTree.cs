@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
 {
-    internal class MyBSTree
+    internal class AVLTree
     {
         
         /*
@@ -18,17 +18,28 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
 
         public TNode root;
 
-        public MyBSTree()
+        public AVLTree()
         {
-
+            
         }
+
+        //
+        //-------------------------------------------------------------ADD------------------------------------------------------------------
+        //
 
         /* Add a node to the sorted tree. Places in a location that all nodes to the left of it are less than it, and all nodes to the right are greater than
          * Methods used:
          *      add()
         */
+
+
         public void add(int val)
         {
+            //Purpose: adds a Node with value 'val' to the tree
+            //Returns: void
+            //Parameter: num to be added to the tree
+
+            //create the node that needs to be added    
             TNode adder = new TNode(val);
             if (this.root == null)
             {
@@ -61,24 +72,40 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
             curr = adder;
         }
 
+        //
+        //------------------------------------------------------REMOVE-------------------------------------------------------------------
+        //
+
         /* Removes a node to the sorted tree. If need be, deals with the children once the node is removed
          * Methods used:
-         *      remove()
+         *      removeNode()
          *      remove_root()
+         *      
         */
-        public void remove(int val)
+
+        public void removeNode(int val)
+            
         {
+            //Purpose: removes a node of value t from the tree
+            //Returns: void
+            //Parameters: value of the TNode that needs to be removed
+
+            //case: root is the node that needs to be removed
             if (this.root.value == val)
             {
                 remove_root(this.root);
             }
+
+            //go through the tree until the Node is found 
             TNode temp_root = this.root;
             while (temp_root.l_child != null || temp_root.r_child != null)
             {
+                //if the value that needs to be removed is found:
                 if (temp_root.l_child.value == val || temp_root.r_child.value == val)
                 {
                     if (temp_root.l_child.value == val)
                     {
+                        //case: the element that needs to be removed is the leaf
                         if (temp_root.l_child.l_child == null && temp_root.l_child.r_child == null)
                         {
                             temp_root.l_child = null;
@@ -89,6 +116,7 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
                     }
                     if (temp_root.r_child.value == val)
                     {
+                        //case: the element that needs to be removed is the leaf
                         if (temp_root.r_child.l_child == null && temp_root.r_child.r_child == null)
                         {
                             temp_root.r_child = null;
@@ -97,6 +125,7 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
                         remove_root(temp_root.r_child);
                     }
                 }
+                //iterates through the tree
                 if (val < temp_root.value)
                 {
                     temp_root = temp_root.l_child;
@@ -159,12 +188,21 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
                 temp.r_child = null;
             }
         }
-        
+
+        //
+        // ------------------------------------------------------SORT--------------------------------------------------------------------- 
+        //
+
+        /*Steps to check to make sure that the tree is sorted:
+         *  traverse through the tree and make sure that at every node, the heights are balanced
+         *  if they are not, either rotate left or rotate right
+         *  
+         *Methods used:
+         *  
+         */
         public void sort()
         {
-            /*Steps to check to make sure that the tree is sorted:
-             *  traverse through the tree and make sure that at every node, the heights are balanced
-             */
+
             traverse_to_balance(this.root);
         }
 
@@ -178,7 +216,7 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
             {
                 balance(r);
                 if (r.l_child == null)
-                {                  
+                {
                     traverse_to_balance(r.r_child);
                 }
                 if (r.r_child == null)
@@ -191,7 +229,6 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
             traverse_to_balance(r.l_child);
             traverse_to_balance(r.r_child);
             return;
-
         }
 
         public void balance(TNode temp_r)
@@ -211,17 +248,42 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
 
         public void rotate_left(TNode subroot)
         {
-            TNode tree1 = subroot.l_child;
-            TNode b = subroot.r_child;
-            TNode tree2 = b.l_child;
-            TNode tree3 = b.r_child;
+            //Purpose: rotates the tree in the left direction given the subroot.
+            //Returns: void
+            //Parameters: subroot of the tree that needs to be rotated towards the left
 
-            subroot.l_child = 
+            //creates copies of all the necessary elements that need to be stored before modification of the sub tree
+            int val_a = subroot.value;
+            TNode tree_1 = subroot.l_child;
+            int val_b = subroot.r_child.value;
+            TNode tree_2 = subroot.r_child.l_child;
+            TNode tree_3 = subroot.r_child.r_child;
+            TNode replacer = new TNode(val_a);
+
+            //modifies the elements in the tree already
+            subroot.value = val_b;
+            subroot.l_child = replacer;
+            replacer.l_child = tree_1;
+            replacer.r_child = tree_2;
+            subroot.r_child = tree_3;
+            return;
+            
         }
 
         public void rotate_right(TNode subroot)
         {
+            int val_a = subroot.value;
+            int val_b = subroot.l_child.value;
+            TNode tree_1 = subroot.l_child.l_child;
+            TNode tree_2 = subroot.l_child.r_child;
+            TNode tree_3 = subroot.r_child;
+            TNode replacer = new TNode(val_a);
 
+            subroot.value = val_b;
+            subroot.l_child = tree_1;
+            subroot.r_child = replacer;
+            subroot.r_child.l_child = tree_2;
+            subroot.r_child.r_child = tree_3;
         }
 
         public int findheight(TNode r)
@@ -260,6 +322,10 @@ namespace AlgsDataStucturesPractice.Data_Structures.BinaryTree
             }
             return -1;
         }
+
+        //
+        // ------------------------------------------------------PRINT--------------------------------------------------------------------------
+        //
 
         /*
          * Prints the tree in a DFS traversal method. 
